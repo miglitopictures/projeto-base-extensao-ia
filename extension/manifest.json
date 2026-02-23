@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "OlivIA",
+  "version": "0.01",
+  "description": "Transforma e simplifica conteúdos para auxiliar nos estudos.",
+  "permissions": ["activeTab", "scripting", "storage","contextMenus"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "./assets/olivia_icon_16.png",
+      "48": "./assets/olivia_icon_48.png",
+      "128": "./assets/olivia_icon_128.png"
+    }
+  },
+  "background":{
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/olivia_icon_128.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["./css/content.css"],
+      "js": ["animation.js","UIController.js","content.js"]
+      
+    }
+  ]
+}
