@@ -5,7 +5,6 @@
   "description": "Transforma e simplifica conteúdos para auxiliar nos estudos.",
   "permissions": ["activeTab", "scripting", "storage","contextMenus"],
   "action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "16": "./assets/olivia_icon_16.png",
       "48": "./assets/olivia_icon_48.png",
@@ -24,8 +23,13 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["./css/content.css"],
-      "js": ["animation.js","UIController.js","content.js"]
+      "css": ["./css/styles.css"],
+      "js": [
+        "./modules/scraper.js",
+        "./modules/api.js",
+        "./modules/oliviaUI.js",
+        "content.js"
+      ]
       
     }
   ]
